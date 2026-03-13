@@ -9,6 +9,7 @@ The frontend for an instant messaging application built with React and Vite. It 
 
 ## Project Structure
 
+```bash
 frontend/
 ├── src/
 │   ├── components/
@@ -59,6 +60,7 @@ frontend/
 ├── package-lock.json
 ├── vite.config.js
 └── README.md
+```
 
 ## Installation
 1. Clone the repository
