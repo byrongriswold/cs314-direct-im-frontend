@@ -10,55 +10,55 @@ The frontend for an instant messaging application built with React and Vite. It 
 ## Project Structure
 
 frontend/
-- src/
-  - components/
-    - ProtectedRoute.jsx
-  - lib/
-    - apiClient.js
-    - constants.js
-    - socket.js
-  - pages/
-    - auth/
-      - Auth.jsx
-    - chat/
-      - Chat.jsx
-      - ChatList.jsx
-      - ChatRoom.jsx
-      - NewChat.jsx
-      - Profile.jsx
-  - App.jsx
-  - main.jsx
-  - App.css
-  - index.css
-- __tests__/
-  - unit/
-    - Auth.unit.test.jsx
-    - Chat.unit.test.jsx
-    - ChatList.unit.test.jsx
-    - ChatRoom.unit.test.jsx
-    - NewChat.unit.test.jsx
-    - Profile.unit.test.jsx
-  - feature/
-    - Auth.test.jsx
-    - ChatRoomManagement.test.jsx
-    - MessagingAndHistory.test.jsx
-    - ProfileAndLogout.test.jsx
-- __mocks__/
-  - api-client.js
-  - constants.js
-- coverage/
-- public/
-  - vite.svg
-- .env
-- babel.config.cjs
-- eslint.config.js
-- index.html
-- jest.config.cjs
-- jest.setup.js
-- package.json
-- package-lock.json
-- vite.config.js
-- README.md
+├── src/
+│   ├── components/
+│   │   └── ProtectedRoute.jsx
+│   ├── lib/
+│   │   ├── apiClient.js
+│   │   ├── constants.js
+│   │   └── socket.js
+│   ├── pages/
+│   │   ├── auth/
+│   │   │   └── Auth.jsx
+│   │   └── chat/
+│   │       ├── Chat.jsx
+│   │       ├── ChatList.jsx
+│   │       ├── ChatRoom.jsx
+│   │       ├── NewChat.jsx
+│   │       └── Profile.jsx
+│   ├── App.jsx
+│   ├── main.jsx
+│   ├── App.css
+│   └── index.css
+├── __tests__/
+│   ├── unit/
+│   │   ├── Auth.unit.test.jsx
+│   │   ├── Chat.unit.test.jsx
+│   │   ├── ChatList.unit.test.jsx
+│   │   ├── ChatRoom.unit.test.jsx
+│   │   ├── NewChat.unit.test.jsx
+│   │   └── Profile.unit.test.jsx
+│   └── feature/
+│       ├── Auth.test.jsx
+│       ├── ChatRoomManagement.test.jsx
+│       ├── MessagingAndHistory.test.jsx
+│       └── ProfileAndLogout.test.jsx
+├── __mocks__/
+│   ├── api-client.js
+│   └── constants.js
+├── coverage/
+├── public/
+│   └── vite.svg
+├── .env
+├── babel.config.cjs
+├── eslint.config.js
+├── index.html
+├── jest.config.cjs
+├── jest.setup.js
+├── package.json
+├── package-lock.json
+├── vite.config.js
+└── README.md
 
 ## Installation
 1. Clone the repository
