@@ -50,6 +50,7 @@ const Chat = () => {
         }
 
         const handleDisconnect = () => {
+            // Display disconnect error only if connection previously occurred
             if (hasConnected) {
                 setSocketError("Cannot connect to chat server.");
             }

@@ -9,6 +9,7 @@ const ChatList = ({ onOpenNewChat, onOpenOldChat, onOpenProfile }) => {
         const getContacts = async () => {
             try {
                 const response = await apiClient.get(CONTACT_ROUTES.LIST);
+                // normalize contact fields
                 const formattedContacts = response.data.contacts.map(({_id, ...rest}) => ({
                     id: _id,
                     ...rest
@@ -22,14 +23,17 @@ const ChatList = ({ onOpenNewChat, onOpenOldChat, onOpenProfile }) => {
         getContacts();
     }, []);
 
+    // Chat room deletion handler
     const handleDelete = async (contactID) => {
-        const confirm_deletion = window.confirm("Are you sure you want to delete this chat?");
-        if (!confirm_deletion) {
+        // Confirm chat room deletion
+        const confirmDeletion = window.confirm("Are you sure you want to delete this chat?");
+        if (!confirmDeletion) {
             return;
         }
 
         try {
             await apiClient.delete(`${CONTACT_ROUTES.DELETE}${contactID}`);
+            // Update local list after successful chat room deletion
             setContacts((contacts) => 
                 contacts.filter((contact) => contact.id !== contactID)
             );
@@ -83,7 +87,7 @@ const ChatList = ({ onOpenNewChat, onOpenOldChat, onOpenProfile }) => {
                         Profile
                     </button>
 
-                    {/* Small Logo */}
+                    {/* DirectIM Logo */}
                     <div
                         style={{
                             fontSize: "18px",
@@ -187,7 +191,7 @@ const ChatList = ({ onOpenNewChat, onOpenOldChat, onOpenProfile }) => {
                             </div>
                         </div>
 
-                        {/* Divider + Delete */}
+                        {/* Divider and Delete Button */}
                         <div
                             style={{
                                 display: "flex",

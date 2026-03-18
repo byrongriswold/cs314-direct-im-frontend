@@ -9,10 +9,12 @@ const Profile = ({ currentUser, onGoBack, onLogout, onUserUpdate }) => {
     const [message, setMessage] = useState("");
 
     useEffect(() => {
+        // Keep local form fields updated when current user changes
         setFirstName(currentUser.firstName || "");
         setLastName(currentUser.lastName || "");
     }, [currentUser]);
 
+    // Profile Name Update Handler
     const handleProfileUpdate = async () => {
         if (!firstName.trim() || !lastName.trim()) {
             setMessage("First and last name are required.");
@@ -185,6 +187,7 @@ const Profile = ({ currentUser, onGoBack, onLogout, onUserUpdate }) => {
                         gap: "12px"
                     }}
                 >
+                    {/* Save Button */}
                     <button
                         onClick={handleProfileUpdate}
                         style={{
@@ -200,6 +203,7 @@ const Profile = ({ currentUser, onGoBack, onLogout, onUserUpdate }) => {
                         Save
                     </button>
 
+                    {/* Cancel Button */}
                     <button
                         onClick={() => {
                         setFirstName(currentUser.firstName || "");

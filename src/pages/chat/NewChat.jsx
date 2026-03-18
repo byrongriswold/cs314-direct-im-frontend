@@ -9,6 +9,7 @@ const NewChat = ({ onGoBack, onSelectChat }) => {
   const handleSearch = async (term) => {
     setSearchTerm(term);
 
+    // Clear results when search is empty
     if (term.trim() === "") {
       setContacts([]);
       return;
@@ -20,6 +21,7 @@ const NewChat = ({ onGoBack, onSelectChat }) => {
         { searchTerm: term }
       );
 
+      // Normalize contact fields
       const formattedContacts = response.data.contacts.map(account => ({
         id: account._id,
         name: `${account.firstName ?? ""} ${account.lastName ?? ""}`.trim(),
@@ -49,6 +51,8 @@ const NewChat = ({ onGoBack, onSelectChat }) => {
           position: "relative"
         }}
       >
+
+        {/* Back Button */}
         <button
           onClick={onGoBack}
           style={{
@@ -66,6 +70,7 @@ const NewChat = ({ onGoBack, onSelectChat }) => {
           ← Back
         </button>
 
+        {/* Header */}
         <h2
           style={{
             margin: 0,
@@ -76,6 +81,7 @@ const NewChat = ({ onGoBack, onSelectChat }) => {
           New Chat
         </h2>
 
+        {/* DirectIM Logo */}
         <div
           style={{
             fontSize: "18px",

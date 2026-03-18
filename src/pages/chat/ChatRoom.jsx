@@ -44,6 +44,7 @@ const MAX_MESSAGE_LEN = 500;
         recipient: { id: recipient._id }
       });
 
+      // normalize message fields
       const formatted = formatMessage(message);
 
       if (formatted.sender.id === contact.id || formatted.recipient.id === contact.id) {
@@ -60,6 +61,7 @@ const MAX_MESSAGE_LEN = 500;
 
   useEffect(() => {
     if (bottomRef.current) {
+      // Keep chat pinned to latest message
       bottomRef.current.scrollTop = bottomRef.current.scrollHeight;
     }
   }, [messages]);
@@ -126,10 +128,9 @@ const MAX_MESSAGE_LEN = 500;
           ← Back
         </button>
 
-        {/* Empty spacer (keeps title centered) */}
         <div />
 
-        {/* Logo */}
+        {/* DirectIM Logo */}
         <div
           style={{
             fontSize: "18px",
@@ -143,7 +144,7 @@ const MAX_MESSAGE_LEN = 500;
         </div>
       </div>
 
-      {/* Contact Name Centered */}
+      {/* Contact Name */}
       <div
         style={{
           textAlign: "center",
@@ -230,7 +231,7 @@ const MAX_MESSAGE_LEN = 500;
         })}
       </div>
 
-      {/* Input Area */}
+      {/* Input Box */}
       <div
         style={{
           display: "flex",

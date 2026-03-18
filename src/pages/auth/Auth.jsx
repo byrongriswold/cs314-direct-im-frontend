@@ -11,7 +11,9 @@ const Auth = () => {
     const [isLogin, setIsLogin] = useState(true);
     const navigate = useNavigate();
 
+    // Signup handler
     const handleSignup = async () => {
+        // Client-side input validation
         if (email === "" || password === "" || confirmPassword === "") {
             setMessage("Please input all fields.");
             return;
@@ -69,13 +71,17 @@ const Auth = () => {
         }
     };
 
+    // Login handler
     const handleLogin = async () => {
+        // Client-side input validation
         if (email === "" || password === "") {
             setMessage("Please input all fields.");
             return;
         }
 
         let attempt = 0;
+        // Retry login only for transient network failures.
+        // Attempts before failure message set to 3
         const maxAttempts = 3;
 
         while (attempt < maxAttempts) {
@@ -134,6 +140,7 @@ const Auth = () => {
                     textAlign: "center"
                 }}
             >
+                {/* DirectIM Logo */}
                 <div
                     style={{
                         fontSize: "32px",
@@ -149,10 +156,12 @@ const Auth = () => {
 
                 {isLogin ? (
                     <>
+                        {/* Header */}
                         <h1 style={{ fontSize: "22px", marginBottom: "20px" }}>
                             Log In
                         </h1>
 
+                        {/* Email Input Box */}
                         <input
                             type="email"
                             placeholder="Email"
@@ -168,6 +177,7 @@ const Auth = () => {
                             }}
                         />
 
+                        {/* Password Input Box */}
                         <input
                             type="password"
                             placeholder="Password"
@@ -183,6 +193,7 @@ const Auth = () => {
                             }}
                         />
 
+                        {/* Log In button */}
                         <button
                             onClick={handleLogin}
                             style={{
@@ -199,7 +210,8 @@ const Auth = () => {
                         >
                             Log In
                         </button>
-
+                        
+                        {/* Create New Account Button */}
                         <button
                             onClick={() => {
                                 setIsLogin(false);
@@ -219,10 +231,12 @@ const Auth = () => {
                     </>
                 ) : (
                     <>
+                        {/* Header */}
                         <h1 style={{ fontSize: "22px", marginBottom: "20px" }}>
                             Create Account
                         </h1>
 
+                        {/* Email Input Box */}
                         <input
                             type="email"
                             placeholder="Email"
@@ -238,6 +252,7 @@ const Auth = () => {
                             }}
                         />
 
+                        {/* Password Input Box */}
                         <input
                             type="password"
                             placeholder="Password"
@@ -253,6 +268,7 @@ const Auth = () => {
                             }}
                         />
 
+                        {/* Confirm Password Input Box */}
                         <input
                             type="password"
                             placeholder="Confirm Password"
@@ -268,6 +284,7 @@ const Auth = () => {
                             }}
                         />
 
+                        {/* Sign Up Button */}
                         <button
                             onClick={handleSignup}
                             style={{
@@ -285,6 +302,7 @@ const Auth = () => {
                             Sign Up
                         </button>
 
+                        {/* Back button */}
                         <button
                             onClick={() => {
                                 setIsLogin(true);
